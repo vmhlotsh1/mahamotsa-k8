@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vuyo-apps
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mahamotsa
+  namespace: vuyo-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mahamotsa
+  template:
+    metadata:
+      labels:
+        app: mahamotsa
+    spec:
+      containers:
+        - name: mahamotsa
+          image: mahamotsa:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mahamotsa-service
+  namespace: vuyo-apps
+spec:
+  selector:
+    app: mahamotsa
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: NodePort
