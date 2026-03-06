@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mahamotsa
+  namespace: vuyo-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mahamotsa
+  template:
+    metadata:
+      labels:
+        app: mahamotsa
+    spec:
+      containers:
+        - name: mahamotsa
+          image: mahamotsa:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
