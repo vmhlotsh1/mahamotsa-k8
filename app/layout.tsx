@@ -7,10 +7,16 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Mahamotsa Trading Enterprise | Premium Catering Services in Gauteng",
+  title: "Mahamotsa Trading Enterprise",
   description:
     "Delivering unforgettable culinary experiences rooted in love, quality, and customer satisfaction. Professional catering services across Gauteng, South Africa.",
-  generator: "v0.app",
+  keywords: [
+    "Mahamotsa Trading Enterprise",
+    "catering Gauteng",
+    "event catering South Africa",
+    "wedding catering Gauteng",
+    "corporate catering Johannesburg"
+  ],
 }
 
 export default function RootLayout({
